@@ -1,0 +1,582 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Sunflower:wght@300;500;700&display=swap');
+
+:root {
+    /* 색상 */
+    --color-primary:    #8D6E63;   /* 주 색상 */
+    --color-secondary:  #BFC9B226;  /* 보조 색상 */
+    --color-accent:     #A8C5D6;   /* 포인트 색상 */
+    --color-bg:         #F3F4F6;   /* 전체 배경 */
+    --color-text:       #696969;   /* 기본 텍스트 */
+    --color-text-light: #9CA3AF;   /* 부드러운 텍스트 (추가됨) */
+    --color-white:      #FFFFFF;
+
+    /* 폰트 */
+    --font-title:  'Gowun Batang', sans-serif;
+    --font-body:   'Sunflower', sans-serif;
+
+    /* 간격 및 기본 속성 */
+    --spacing-sm:  0.5rem;
+    --spacing-md:  1rem;
+    --spacing-lg:  2rem;
+    --spacing-xl:  4rem;
+    --radius:      8px;
+    --radius-lg:   16px;
+    
+    /* 상단 네비게이션 높이 고정값 */
+    --header-height: 70px; 
+}
+
+/* ====================
+   Reset
+==================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.8;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+main {
+    padding-top: 80px;
+}
+/* ====================
+   Common
+==================== */
+
+.section-inner {
+  width: min(90%, var(--max-width));
+  margin: 0 auto;
+}
+
+section {
+  padding: var(--spacing-xl) 0;
+  scroll-margin-top: 100px;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  color: var(--color-primary);
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--color-accent);
+  margin: 12px auto 0;
+}
+
+/* ====================
+   Header
+==================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  height: 80px;
+  z-index: 100;
+  background: rgba(243,244,246,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #ddd;
+}
+
+.nav {
+  width: min(90%, var(--max-width));
+  margin: 0.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 0;
+}
+
+.logo {
+  font-family: var(--font-title);
+  color: var(--color-primary);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-menu a {
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  color: var(--color-accent);
+}
+
+/* ====================
+   Hero
+==================== */
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--color-secondary);
+}
+
+.hero-content {
+  max-width: 800px;
+}
+.hero-image {
+    width: 180px;
+
+    background: white;
+
+    padding: 10px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+    margin: 0 auto 2rem;
+
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+}
+.hero-image:hover {
+    transform: scale(1.05);
+}
+
+.hero-subtitle {
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 2px;
+}
+
+.hero-title {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  line-height: 1.4;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero-button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero-btn {
+  padding: 0.9rem 1.8rem;
+  border-radius: var(--radius);
+  transition: 0.3s;
+}
+
+.primary-btn {
+  background: var(--color-primary);
+  color: white;
+}
+
+.secondary-btn {
+  border: 1px solid var(--color-primary);
+  background: var(--color-white);
+}
+
+.primary-btn:hover {
+  background: var(--color-text-light);
+  transform: translateY(-2px);
+}
+.secondary-btn:hover {
+  background: var(--color-text-light);
+  color: white;
+  transform: translateY(-2px);
+}
+/* ====================
+   Hero Animation
+==================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-subtitle,
+.hero-title,
+.hero-description,
+.hero-button-group {
+  opacity: 0;
+}
+.hero-subtitle {
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0s;
+}
+.hero-title {
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+/* 부제 */
+.hero-description {
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.4s;
+}
+
+/* 버튼 */
+.hero-button-group {
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.6s;
+}
+/* ====================
+   About
+==================== */
+
+.about-text {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* ====================
+   Works
+==================== */
+
+.works-list {
+  display: flex;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.work-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s;    
+  text-align: center;
+  margin: 25px;
+  transition: 0.8s ease;
+}
+.work-image{
+  width: 100%;
+  height: 300px;
+  object-fit:cover;
+  display: block;
+}
+.work-card:hover .work-image {
+  transform: scale(1.05);
+}
+.work-card:hover {
+  transform: translateY(-6px);
+}
+
+.work-title {
+  color: var(--color-primary);
+  margin: 1rem;
+  font-size: 20px;
+}
+.work-description{
+    margin-top: 2px;
+    font-size: 20px;
+}
+
+/* ====================
+   Skills
+==================== */
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(1, max-content); 
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 200px;
+}
+
+.skill-item {
+  background: white;
+  text-align: center; 
+  width: 500px;
+  height: 100px;
+  line-height: 100px; 
+  border-radius: var(--radius);
+  font-size: 30px;
+  border-left: 10px solid var(--color-accent);
+}
+
+/* ====================
+   Pursuit
+==================== */
+
+.pursuit-section {
+  background: var(--color-secondary);
+}
+
+.pursuit-text {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.pursuit-quote {
+  margin-top: 2rem;
+
+  text-align: center;
+  font-size: 2rem;
+  font-family: var(--font-title);
+  color: var(--color-primary);
+}
+
+/* ====================
+   Contact
+==================== */
+
+.contact-description {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.contact-list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+}
+
+/* ====================
+   Footer
+==================== */
+
+.footer {
+  background: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.footer-message {
+  margin-top: 0.5rem;
+}
+
+/* ====================
+   Tablet (768px)
+==================== */
+
+@media (max-width: 768px) {
+
+  /* Header */
+  .nav {
+    flex-direction: column;
+    padding: 0.8rem 0;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Hero */
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-button-group {
+    flex-wrap: wrap;
+  }
+
+  /* Works */
+  .works-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .work-card {
+    width: 45%;
+    margin: 10px;
+  }
+
+  /* Skills */
+  .skill-item {
+    width: 400px;
+    font-size: 24px;
+  }
+
+  /* About */
+  .about-text {
+    font-size: 1.3rem;
+  }
+
+  /* Pursuit */
+  .pursuit-text {
+    font-size: 1.3rem;
+  }
+
+  .pursuit-quote {
+    font-size: 1.7rem;
+  }
+
+}
+
+/* ====================
+   Mobile (480px)
+==================== */
+
+@media (max-width: 480px) {
+
+   .nav-menu {
+    display: none;
+  }
+
+  /* Header */
+  .nav {
+    justify-content: center;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  
+  /* Hero */
+  .hero-section {
+    padding: 60px 20px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-btn {
+    width: 180px;
+    text-align: center;
+  }
+
+  /* About */
+  .about-text {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  /* Works */
+  .works-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .work-card {
+    margin: 0;
+    width: 100%;
+  }
+
+  .work-image {
+    height: 180px;
+  }
+
+  .work-title {
+    font-size: 1.2rem;
+  }
+
+  .work-description {
+    font-size: 1rem;
+  }
+
+  /* Skills */
+  .skill-item {
+    width: 100%;
+    max-width: 320px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 1.1rem;
+  }
+
+  /* Pursuit */
+  .pursuit-text {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .pursuit-quote {
+    font-size: 1.1rem;
+  }
+
+  /* Contact */
+  .contact-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-item {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 1.5rem;
+  }
+
+}
