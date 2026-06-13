@@ -123,7 +123,14 @@ section {
   font-family: var(--font-title);
   color: var(--color-primary);
 }
-
+.menu-toggle {
+  display: none;
+  border: none;
+  background: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--color-primary);
+}
 .nav-menu {
   display: flex;
   gap: 2rem;
@@ -471,6 +478,43 @@ section {
 
 @media (max-width: 480px) {
 
+      .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    justify-content: space-between;
+  }
+
+  .nav-menu {
+    display: none;
+
+    position: absolute;
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+
+    flex-direction: column;
+
+    background: rgba(243,244,246,0.98);
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    gap: 0;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+
+}
    .nav-menu {
     display: none;
   }
